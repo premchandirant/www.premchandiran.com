@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.premchandiran.com</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-blue: #00f3ff;
+            --neon-pink: #ff0055;
+            --bg-dark: #020205;
+            --glass: rgba(10, 10, 20, 0.9);
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 50%, #1a1a2e 0%, #020205 100%);
+            color: var(--neon-blue);
+            font-family: 'Share Tech Mono', monospace;
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-bottom: 1px solid var(--neon-blue);
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--neon-blue);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 5px 15px;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue);
+            background: rgba(0, 243, 255, 0.1);
+        }
+
+        /* --- CONTENT AREA --- */
+        .container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .page {
+            display: none; /* Hidden by default */
+            width: 100%;
+            max-width: 900px;
+            background: var(--glass);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            animation: slideIn 0.4s ease-out;
+        }
+
+        .page.active { display: block; }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- HOME PAGE STYLES --- */
+        .hero-text { text-align: center; }
+        .hero-text h1 { font-family: 'Orbitron'; font-size: 4rem; margin: 0; color: white; text-shadow: 0 0 20px var(--neon-blue); }
+        .glitch-sub { color: var(--neon-pink); letter-spacing: 5px; }
+
+        /* --- INFO PAGE STYLES --- */
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .stat-box { border: 1px solid var(--neon-blue); padding: 15px; background: rgba(255,255,255,0.02); }
+        .bar { height: 5px; background: #222; margin-top: 10px; }
+        .fill { height: 100%; background: var(--neon-blue); box-shadow: 0 0 10px var(--neon-blue); }
+
+        /* --- CONTACT PAGE STYLES --- */
+        input, textarea {
+            width: 100%;
+            background: #111;
+            border: 1px solid var(--neon-blue);
+            color: white;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-family: 'Share Tech Mono';
+        }
+        .btn-send {
+            background: var(--neon-pink);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            cursor: pointer;
+            font-family: 'Orbitron';
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a onclick="showPage('home')" id="link-home" class="active">HOME</a>
+        <a onclick="showPage('info')" id="link-info">more about</a>
+        <a onclick="showPage('contact')" id="link-contact">contact us</a>
+    </nav>
+
+    <div class="container">
+        
+        <div id="home" class="page active">
+            <div class="hero-text">
+                <p class="glitch-sub">welcome my website</p>
+                <h1>PREMCHANDIRAN T</h1>
+                <p>B.TECH-CSE</p>
+                <P>MANAKULA VINAYAGAR INSTITUTE OF TECHNOLOGY</P>
+                <button class="btn-send" style="width: auto; margin-top: 20px;" onclick="showPage('info')">INITIALIZE DATA SCAN</button>
+            </div>
+        </div>
+
+        <div id="info" class="page">
+            <h2 style="font-family: 'Orbitron'; color: white;">about premchandiran</h2>
+            <div class="info-grid">
+                <div class="stat-box">
+                    <span>education</span>
+                    <div style="font-size: 1.5rem; color: var(--neon-pink);">B.TECH CSE</div>
+                </div>
+                <div class="stat-box">
+                    <span>STUDENT AT</span>
+                    <div>MANAKULA VINAYAGAR INSTITUTE OF TECHNOLOGY
+                        MADAGADIPET,PUDUCHERRY.
+                    </div>
+                    
+                </div>
+                <div class="stat-box">
+                    <span>SCHOOL EDUCATION:
+                        STUDIED AT SRVS NATIONAL HIGHER SECONDARY SCHOOL
+                        KARAIKAL
+                    </span>
+                    <div class="bar"><div class="fill" style="width: 95%;"></div></div>
+                </div>
+                <div class="stat-box">
+                    <span>PRESONAL LIFE:
+                        BORN IN 24/06/2007
+                        AT KARAIKAL
+                    </span>
+                    <div class="bar"><div class="fill" style="width: 80%; background: var(--neon-pink);"></div></div>
+                </div>
+            </div>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity: 0.6;">>THANK YOU FOR VISITED</p>
+        </div>
+
+        <div id="contact" class="page">
+            <h2 style="font-family: 'Orbitron';">CONTACT US</h2>
+            <form id="contactForm">
+                <input type="text" placeholder="MOBILE NO:7397652640">
+                <input type="email" placeholder="EMAIL:premchandiran100@gmail.com">
+                <textarea rows="4" placeholder="ADDRESS: 71,ATHIPADUGAI ROAD
+                THIRUNALLAR,KARAIKAL
+                PUDUCHERRY"></textarea>
+                <button type="button" class="btn-send" onclick="THANK YOU FOR VISITED">THANK YOU FOR VISITED</button>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // 1. Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // 2. Remove active class from nav links
+            const links = document.querySelectorAll('nav a');
+            links.forEach(link => link.classList.remove('active'));
+
+            // 3. Show the selected page
+            document.getElementById(pageId).classList.add('active');
+
+            // 4. Set nav link to active
+            document.getElementById('link-' + pageId).classList.add('active');
+        }
+
+        function sendSignal() {
+            alert("TRANSMISSION ENCRYPTED AND SENT. Awaiting response from Mars...");
+            document.getElementById('contactForm').reset();
+            showPage('home');
+        }
+    </script>
+</body>
+</html>
